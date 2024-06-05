@@ -1,6 +1,6 @@
 # SQL Movie Logger (w/ Django)
 (Very) basic movie logger site to test the ORM capabilities of Django with SQL databases. \
-Contains two dynamic models: Movie, MovieLog
+Contains two dynamic models: Movie, MovieLog \
 **Languages**: Python, HTML \
 **Libraries**: Django, (implicit) SQL calls
 
