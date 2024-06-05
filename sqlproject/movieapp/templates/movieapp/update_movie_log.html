@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        h1 {text-align: center;}
+        h2 {text-align: center;}
+        form {text-align: center;}
+        div {text-align: center;}
+        ul {
+            text-align: center;
+            list-style-position: inside;
+            font-size: large;
+            color: maroon;
+            font-weight: bold;
+        }
+        li {text-align: center;}
+    </style>
+    <meta charset="UTF-8">
+    <title>Update Movie Log</title>
+</head>
+<body>
+    <div class="navbar">
+        <a href="{% url 'search' %}">Search</a>
+        <a href="{% url 'add_movie' %}">Add Movie</a>
+        <a href="{% url 'add_log' %}">Add Log</a>
+        <a href="{% url 'view_logs' %}">View Logs</a>
+        <a href="{% url 'update_movie_log' %}">Update Movie Log</a>
+        <a href="{% url 'report' %}">Generate Report</a>
+    </div>
+    <h1>Update Movie Log</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="log_id">Log ID:</label>
+        <input type="text" id="log_id" name="log_id"><br>
+        <label for="new_rating">New Rating:</label>
+        <input type="text" id="new_rating" name="new_rating"><br>
+        <button type="submit">Update Rating</button>
+    </form>
+</body>
+</html>

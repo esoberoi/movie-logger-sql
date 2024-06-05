@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        h1 {text-align: center;}
+        form {text-align: center;}
+        div {text-align: center;}
+    </style>
+    <meta charset="UTF-8">
+    <title>Add Movie</title>
+</head>
+<body>
+    <div class="navbar">
+        <a href="{% url 'search' %}">Search</a>
+        <a href="{% url 'add_movie' %}">Add Movie</a>
+        <a href="{% url 'add_log' %}">Add Log</a>
+        <a href="{% url 'view_logs' %}">View Logs</a>
+        <a href="{% url 'update_movie_log' %}">Update Movie Log</a>
+        <a href="{% url 'report' %}">Generate Report</a>
+    </div>
+    <h1>Add Movie</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Movie</button>
+    </form>
+</body>
+</html>

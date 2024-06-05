@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        h1 {text-align: center;}
+        h3 {
+            text-align: center;
+            font-weight: bold;
+        }
+        p {text-align: center;}
+        ul {
+            text-align: center;
+            list-style-position: inside;
+            font-size: large;
+            color: maroon;
+        }
+        li {text-align: center;}
+        div {text-align: center;}
+        .id_span {
+            color: navy;
+            font-weight: bold;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>Movie Logs</title>
+</head>
+<body>
+    <div class="navbar">
+        <a href="{% url 'search' %}">Search</a>
+        <a href="{% url 'add_movie' %}">Add Movie</a>
+        <a href="{% url 'add_log' %}">Add Log</a>
+        <a href="{% url 'view_logs' %}">View Logs</a>
+        <a href="{% url 'update_movie_log' %}">Update Movie Log</a>
+        <a href="{% url 'report' %}">Generate Report</a>
+    </div>
+    <h1>Movie Logs</h1>
+    {% if error_message %}
+    <p>{{ error_message }}</p>
+    {% endif %}
+    <h3>Log ID -- Movie Title -- Date Watched -- Your Rating</h3>
+    <h3><ul>
+        {% for log in logs %}
+            <li> <span class="id_span">{{log.id}} </span>  -- {{ log.movie.title }}  --  {{ log.date_watched }}  --  {{ log.rating }}</li>
+        {% empty %}
+            <li>No logs available</li>
+        {% endfor %}
+    </ul>
+    </h3>
+</body>
+</html>
